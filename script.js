@@ -135,9 +135,10 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Add tap event listener for mobile devices
 document.addEventListener('click', (e) => {
+    if (!(e.target.matches('button') ||e.target.matches('input') ||e.target.matches('select')) ) {
         showNextStep();
+    }
 });
 
 searchBtn.addEventListener('click', () => {
