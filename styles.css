@@ -309,3 +309,28 @@ body.space-theme::after {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+.floating-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4a4e69;
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.floating-btn img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.floating-btn:hover {
+    background-color: #22223b;
+}

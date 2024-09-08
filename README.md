@@ -19,6 +19,7 @@ A themed, fully-customizable web page to make your learning sessions fun, intera
 
 # FAQ
 Q: What is a stage?
+
 A: Think of this as a way to categorize your quests.  This helps in filtering quests of a particular category.
 
 # Ultra Secret Information 🤫
