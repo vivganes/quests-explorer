@@ -109,7 +109,6 @@ function showNextStep() {
     }
 
     currentStep++;
-    instructionBanner.style.display = 'none';
 }
 
 function hideAdditionalHints() {

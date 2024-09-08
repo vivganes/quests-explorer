@@ -169,7 +169,7 @@ li::before {
 }
 
 .instruction-banner {
-    background-color: rgba(255, 215, 0, 0.2);
+    background-color: var(--button-bg);
     color: #ffd700;
     text-align: center;
     padding: 10px;
