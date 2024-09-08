@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quest Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="theme-switcher">
+        <button id="spaceTheme" class="theme-btn active">Space Theme</button>
+        <button id="oceanTheme" class="theme-btn">Ocean Theme</button>
+        <button id="desertTheme" class="theme-btn">Desert Theme</button>
+    </div>
+    <div class="container">
+        <h1>Quest Explorer</h1>
+        <div id="instructionBanner" class="instruction-banner">
+            Press the right arrow key (→) to learn more details about the scenario
+        </div>
+        <div class="controls">
+            <div class="search-container">
+                <input type="number" id="scenarioIdInput" placeholder="Enter Scenario ID" min="1" max="999">
+                <button id="searchBtn">Search</button>
+            </div>
+            <select id="stageFilter" aria-label="Filter scenarios by stage">
+                <option value="">No filter</option>
+                <!-- The other options will be dynamically populated by JavaScript -->
+            </select>
+            <button id="resetBtn">Load Random Scenario</button>
+            <button id="replayBtn">Replay Scenario</button>
+        </div>
+        <div id="scenario" class="scenario">
+            <div id="context"></div>
+            <div id="currentDate"></div>
+            <div id="whatHappenedNow"></div>
+            <div id="additionalHints"></div>
+            <button id="peekBtn" class="hidden">Peek into additional hints</button>
+            <button id="hideHintsBtn" class="hidden subtle-btn">Hide additional hints</button>
+        </div>
+    </div>
+    <script src="scenarios.js"></script>
+    <script src="script.js"></script>
+    <script src="themeswitcher.js"></script>
+</body>
+</html>

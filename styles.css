@@ -1,0 +1,311 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    text-align: center;
+    color: var(--heading-color);
+    text-shadow: 0 0 10px var(--heading-color), 0 0 20px var(--heading-color), 0 0 30px var(--heading-color);
+    font-size: 3em;
+    margin-bottom: 30px;
+}
+
+.controls {
+    display: flex;
+    justify-content: right;
+    margin-bottom: 20px;
+}
+
+button, select {
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 5px;
+}
+
+button:hover, select:hover {
+    background-color: var(--button-hover-bg);
+    box-shadow: 0 0 10px var(--heading-color);
+}
+
+.scenario {
+    background-color: var(--scenario-bg);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.scenario > div {
+    margin-bottom: 15px;
+}
+
+#peekBtn {
+    background-color: var(--peek-btn-bg);
+    color: var(--peek-btn-color);
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#peekBtn:hover {
+    background-color: #ffbf69;
+    box-shadow: 0 0 15px #ff9f1c;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Desert Theme */
+body.desert-theme {
+    --bg-color: #f4e1c1; /* Light sandy background */
+    --text-color: #3b2a1e; /* Dark brown text */
+    --heading-color: #c77d3a; /* Golden heading color */
+    --button-bg: #d1a76d; /* Button background */
+    --button-hover-bg: #b58a4d; /* Button hover background */
+    --scenario-bg: rgba(255, 255, 255, 0.9); /* Scenario background */    
+    --peek-btn-bg: #b58a4d;
+}
+
+/* Additional styles for better readability */
+h2 {
+    color: #ffd700;
+    text-shadow: 0 0 5px #ffd700;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+li::before {
+    content: '🚀';
+    margin-right: 10px;
+}
+
+/* Add this to the end of your existing styles.css file */
+
+.subtle-btn {
+    background-color: rgba(74, 78, 105, 0.5);
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.subtle-btn:hover {
+    background-color: rgba(34, 34, 59, 0.7);
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+#resetBtn {
+    margin-left:2px;
+}
+
+#replayBtn {
+    margin-left: 2px;
+    background-color: #4CAF50;
+}
+
+#replayBtn:hover {
+    background-color: #45a049;
+    box-shadow: 0 0 10px #4CAF50;
+}
+
+.search-container {
+    display: flex;
+    margin-right: 10px;
+}
+
+#scenarioIdInput {
+    width: 150px;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: 1px solid #4a4e69;
+    border-radius: 5px 0 0 5px;
+    background-color: #22223b;
+    color: #ffffff;
+}
+
+#searchBtn {
+    border-radius: 0 5px 5px 0;
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #4a4e69;
+    border: 1px solid #4a4e69;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#searchBtn:hover {
+    background-color: #22223b;
+    box-shadow: 0 0 10px #ffd700;
+}
+
+.instruction-banner {
+    background-color: rgba(255, 215, 0, 0.2);
+    color: #ffd700;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+    }
+}
+
+/* Theme Switcher Styles */
+.theme-switcher {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: sticky; /* Make the theme switcher sticky */
+    top: 0; /* Stick to the top of the viewport */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+.theme-btn {
+    margin: 0 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #4a4e69;
+    color: #e0e0e0;
+}
+
+.theme-btn.active {
+    box-shadow: 0 0 10px var(--heading-color);
+    background-color: #22223b;
+}
+
+/* Ocean Theme */
+body.ocean-theme {
+    --bg-color: #00008B;
+    --text-color: #E0FFFF;
+    --heading-color: #00FFFF;
+    --button-bg: #4169E1;
+    --button-hover-bg: #1E90FF;
+    --scenario-bg: rgba(0, 105, 148, 0.8);
+    --peek-btn-bg: #20B2AA;
+    --peek-btn-color: #ffffff;
+}
+
+body.ocean-theme::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #00008B, #000080, #191970);
+    z-index: -2;
+}
+
+body.ocean-theme::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+        radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+        radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+    animation: bubbles 60s linear infinite;
+    z-index: -1;
+}
+
+@keyframes bubbles {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100%); }
+}
+
+/* Space Theme */
+body.space-theme {
+    --bg-color: #0a0a2a; /* Dark space background */
+    --text-color: #e0e0e0; /* Light text color */
+    --heading-color: #ffd700; /* Gold heading color */
+    --button-bg: #4a4e69; /* Button background */
+    --button-hover-bg: #22223b; /* Button hover background */
+    --scenario-bg: rgba(22, 33, 62, 0.9); /* Scenario background */
+    --peek-btn-bg: #ff9f1c; /* Peek button background */
+    --peek-btn-color: #000000; /* Peek button text color */
+}
+
+body.space-theme::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #0a0a2a 0%, #000000 100%);
+    z-index: -2;
+}
+
+body.space-theme::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+        radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+        radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+    animation: stars 120s linear infinite;
+    z-index: -1;
+}
+
+@keyframes stars {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
