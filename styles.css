@@ -334,3 +334,25 @@ body.space-theme::after {
 .floating-btn:hover {
     background-color: #22223b;
 }
+
+/* Responsive Styles for Mobile */
+@media (max-width: 600px) {
+    .controls {
+        flex-direction: column; /* Stack controls vertically */
+        align-items: center; /* Center align controls */
+    }
+
+    .search-container {
+        width: 100%; /* Full width for search container */
+        margin-bottom: 10px; /* Space between elements */
+    }
+
+    #scenarioIdInput {
+        width: calc(100% - 20px); /* Full width minus padding */
+    }
+
+    button, select {
+        width: 100%; /* Full width buttons */
+        margin-top: 5px; /* Space between buttons */
+    }
+}

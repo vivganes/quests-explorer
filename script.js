@@ -135,6 +135,11 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+// Add tap event listener for mobile devices
+document.addEventListener('click', (e) => {
+        showNextStep();
+});
+
 searchBtn.addEventListener('click', () => {
     const searchId = parseInt(scenarioIdInput.value);
     const foundScenario = findScenarioById(searchId);
