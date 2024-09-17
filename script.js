@@ -13,6 +13,10 @@ const replayBtn = document.getElementById('replayBtn');
 const scenarioIdInput = document.getElementById('scenarioIdInput');
 const searchBtn = document.getElementById('searchBtn');
 const instructionBanner = document.getElementById('instructionBanner');
+const revealAnswersBtn = document.getElementById('revealAnswersBtn');
+const answersPopup = document.getElementById('answersPopup');
+const answersList = document.getElementById('answersList');
+const closePopup = document.getElementById('closePopup');
 
 function getRandomScenario(stage = '') {
     const filteredScenarios = stage
@@ -55,48 +59,52 @@ function showNextStep() {
 
     if (currentStep === 0) {
         contextEl.innerHTML = `<h2>Scenario ID</h2><p>${currentScenario.id}</p><h2>Context</h2><ul></ul>`;
-        currentStep++;
-        scrollToBottom();
-    } else if (currentStep <= contextSentences.length) {
         const contextList = contextEl.querySelector('ul');
         const listItem = document.createElement('li');
-        listItem.textContent = contextSentences[currentStep - 1].trim() + '.';
+        listItem.textContent = contextSentences[0].trim();
+        contextList.appendChild(listItem);
+        currentStep++;
+        scrollToBottom();
+    } else if (currentStep <= contextSentences.length-1) {
+        const contextList = contextEl.querySelector('ul');
+        const listItem = document.createElement('li');
+        listItem.textContent = contextSentences[currentStep - 1].trim();
         contextList.appendChild(listItem);
         scrollToBottom();
-    } else if (currentStep === contextSentences.length + 1) {
+    } else if (currentStep === contextSentences.length) {
         currentDateEl.innerHTML = `<h2>Current Stage</h2>${currentScenario.stage}`;
         scrollToBottom();
-    } else if (currentStep === contextSentences.length + 2) {
+    } else if (currentStep === contextSentences.length + 1) {
         currentDateEl.innerHTML += `<h2>Today's Date</h2>${currentScenario.currentDate}`;
         scrollToBottom();
-    } else if (currentStep === contextSentences.length + 3) {
+    } else if (currentStep === contextSentences.length + 2) {
         whatHappenedNowEl.innerHTML = '<h2>What Happened Now?</h2><ul></ul>';
         const whatHappenedNowList = whatHappenedNowEl.querySelector('ul');
         const listItem = document.createElement('li');
-        listItem.textContent = whatHappenedNowSentences[0].trim() + '.';
+        listItem.textContent = whatHappenedNowSentences[0].trim();
         whatHappenedNowList.appendChild(listItem);
         scrollToBottom();
-    } else if (currentStep < contextSentences.length + 3 + whatHappenedNowSentences.length) {
-        const whatHappenedNowIndex = currentStep - contextSentences.length - 3;
+    } else if (currentStep < contextSentences.length + 2 + whatHappenedNowSentences.length) {
+        const whatHappenedNowIndex = currentStep - contextSentences.length - 2;
         const whatHappenedNowList = whatHappenedNowEl.querySelector('ul');
         const listItem = document.createElement('li');
-        listItem.textContent = whatHappenedNowSentences[whatHappenedNowIndex].trim() + '.';
+        listItem.textContent = whatHappenedNowSentences[whatHappenedNowIndex].trim();
         whatHappenedNowList.appendChild(listItem);
-        scrollToBottom();
-    } else if (currentStep === contextSentences.length + 3 + whatHappenedNowSentences.length) {
+        scrollToBottom();        
+    } else if (currentStep === contextSentences.length + 2 + whatHappenedNowSentences.length) {
         peekBtn.classList.remove('hidden');
         scrollToBottom();
-    } else if (currentStep > contextSentences.length + 3 + whatHappenedNowSentences.length) {
+    } else if (currentStep > contextSentences.length + 2 + whatHappenedNowSentences.length) {
         if (peekBtn.classList.contains('hidden')) {
             if (additionalHintsEl.innerHTML === '') {
                 additionalHintsEl.innerHTML = '<h2>Additional Hints</h2><ul></ul>';
             }
-            const additionalHintsIndex = currentStep - contextSentences.length - 4 - whatHappenedNowSentences.length;
+            const additionalHintsIndex = currentStep - contextSentences.length - 3 - whatHappenedNowSentences.length;
             
             if (additionalHintsIndex < additionalHintsSentences.length) {
                 const additionalHintsList = additionalHintsEl.querySelector('ul');
                 const listItem = document.createElement('li');
-                listItem.textContent = additionalHintsSentences[additionalHintsIndex].trim() + '.';
+                listItem.textContent = additionalHintsSentences[additionalHintsIndex].trim();
                 additionalHintsList.appendChild(listItem);
                 scrollToBottom();
                 
@@ -197,3 +205,27 @@ populateStageFilter();
 
 resetScenario();
 showNextStep();
+
+revealAnswersBtn.addEventListener('click', () => {
+    const userConfirmation = confirm("Are you sure you want to reveal the answers?");
+    if (userConfirmation) {
+        const answers = currentScenario.answers; // Assuming 'answers' property exists
+        if (answers) {
+            const answersArr = answers.split(". ");
+ 
+            answersArr.forEach((answer) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = answer.trim();
+                answersText.appendChild(listItem);
+            })            
+            answersPopup.classList.remove('hidden'); // Show the popup
+        } else {
+            alert('No answers available for this scenario.');
+        }
+    }
+});
+
+closePopup.addEventListener('click', () => {
+    answersPopup.classList.add('hidden'); // Hide the popup
+    answersText.innerHTML='';
+});
