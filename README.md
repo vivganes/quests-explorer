@@ -1,6 +1,6 @@
 # quests-explorer
 
-[🔗 Demo Page](https://vivekganesan.com/quests-explorer/)
+[🔗 Demo Page](https://vivganes.github.io/quests-explorer/)
 
 -  Are you a trainer or a teacher who **hates** boring material?  
 -  Do you use quests, activities or mock real-world scenarios to help your students learn in your class? _If not, you should!_
